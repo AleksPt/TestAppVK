@@ -1,0 +1,23 @@
+/*
+  Localizable.strings
+  TestAppVK
+
+  Created by Алексей on 22.07.2024.
+  
+*/
+
+"clear day" = "Ясный день";
+"clear night" = "Ясная ночь";
+"cloudy" = "Облачно";
+"drizzle" = "Моросит";
+"fog" = "Туман";
+"hail" = "Град";
+"hurricane" = "Ураган";
+"overcast Day" = "Пасмурный день";
+"overcast Night" = "Пасмурная ночь";
+"rain" = "Дождь";
+"sleet" = "Слякоть";
+"smoke" = "Дым";
+"snow" = "Снег";
+"thunderstorms" = "Гроза";
+"tornado" = "Торнадо";
