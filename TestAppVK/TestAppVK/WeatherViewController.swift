@@ -44,5 +44,8 @@ extension WeatherViewController: UICollectionViewDataSource {
 
 // MARK: - UICollectionViewDelegate
 extension WeatherViewController: UICollectionViewDelegate {
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        weatherView.weatherImage.image = UIImage(named: weather[indexPath.item].icon)
+        weatherView.weatherDescription.text = weather[indexPath.item].description
+    }
 }

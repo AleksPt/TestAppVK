@@ -17,12 +17,10 @@ enum Icons: String {
     case hurricane
     case overcastDay = "overcast-day"
     case overcastNight = "overcast-night"
-    case overcast
     case rain
     case sleet
     case smoke
     case snow
     case thunderstorms
     case tornado
-    case wind
 }
