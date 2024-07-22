@@ -21,8 +21,27 @@ final class WeatherViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         weatherView.setDelegates(controller: self)
+        selectRandomCell()
     }
 
+    // MARK: - Private methods
+    private func didTapCell(item: WeatherModel) {
+        weatherView.weatherImage.image = UIImage(named: item.icon)
+        weatherView.weatherDescription.text = item.description
+    }
+    
+    private func selectRandomCell() {
+        let randomItem = Int.random(in: 0...weather.count - 1)
+        let selectedItem: IndexPath = IndexPath(item: randomItem, section: 0)
+        
+        weatherView.collectionView.selectItem(
+            at: selectedItem,
+            animated: true,
+            scrollPosition: []
+        )
+        
+        didTapCell(item: weather[randomItem])
+    }
 
 }
 
@@ -45,7 +64,7 @@ extension WeatherViewController: UICollectionViewDataSource {
 // MARK: - UICollectionViewDelegate
 extension WeatherViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        weatherView.weatherImage.image = UIImage(named: weather[indexPath.item].icon)
-        weatherView.weatherDescription.text = weather[indexPath.item].description
+        let weatherItem = weather[indexPath.item]
+        didTapCell(item: weatherItem)
     }
 }

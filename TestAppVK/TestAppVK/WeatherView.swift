@@ -10,7 +10,7 @@ import UIKit
 final class WeatherView: UIView {
     
     // MARK: - UI
-    private lazy var collectionView: UICollectionView = {
+    lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         layout.itemSize = CGSize(width: 75, height: 75)
