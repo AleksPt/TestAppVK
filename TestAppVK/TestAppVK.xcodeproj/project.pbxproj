@@ -52,6 +52,7 @@
 			isa = PBXGroup;
 			children = (
 				FA0AF30F2C4E579B0049DD0D /* TestAppVK */,
+				FA0AF31B2C4E579E0049DD0D /* LaunchScreen.storyboard */,
 				FA0AF30E2C4E579B0049DD0D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -67,13 +68,10 @@
 		FA0AF30F2C4E579B0049DD0D /* TestAppVK */ = {
 			isa = PBXGroup;
 			children = (
-				FA0AF32E2C4E764D0049DD0D /* Helpers */,
 				FA0AF3242C4E582D0049DD0D /* App */,
-				FA0AF32A2C4E6DDD0049DD0D /* WeatherModel.swift */,
-				FA0AF3262C4E5C3A0049DD0D /* WeatherView.swift */,
-				FA0AF3142C4E579B0049DD0D /* WeatherViewController.swift */,
-				FA0AF3282C4E5D0A0049DD0D /* WeatherCell.swift */,
-				FA0AF31B2C4E579E0049DD0D /* LaunchScreen.storyboard */,
+				FA0AF32E2C4E764D0049DD0D /* Helpers */,
+				FA0AF3352C4E9C040049DD0D /* Model */,
+				FA0AF3362C4E9C140049DD0D /* Screens */,
 				FA0AF3252C4E585E0049DD0D /* Support */,
 			);
 			path = TestAppVK;
@@ -105,6 +103,24 @@
 				FA0AF32F2C4E76750049DD0D /* ScreenSize.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		FA0AF3352C4E9C040049DD0D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FA0AF32A2C4E6DDD0049DD0D /* WeatherModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FA0AF3362C4E9C140049DD0D /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				FA0AF3262C4E5C3A0049DD0D /* WeatherView.swift */,
+				FA0AF3142C4E579B0049DD0D /* WeatherViewController.swift */,
+				FA0AF3282C4E5D0A0049DD0D /* WeatherCell.swift */,
+			);
+			path = Screens;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
