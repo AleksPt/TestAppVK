@@ -19,21 +19,21 @@ struct WeatherModel {
 extension WeatherModel {
     static func getMockData() -> [WeatherModel] {
         [
-            WeatherModel(icon: Icons.clearDay.rawValue, description: "Clear Day"),
-            WeatherModel(icon: Icons.clearNight.rawValue, description: "Clear Night"),
-            WeatherModel(icon: Icons.cloudy.rawValue, description: Icons.cloudy.rawValue.capitalized),
-            WeatherModel(icon: Icons.drizzle.rawValue, description: Icons.drizzle.rawValue.capitalized),
-            WeatherModel(icon: Icons.fog.rawValue, description: Icons.fog.rawValue.capitalized),
-            WeatherModel(icon: Icons.hail.rawValue, description: Icons.hail.rawValue.capitalized),
-            WeatherModel(icon: Icons.hurricane.rawValue, description: Icons.hurricane.rawValue.capitalized),
-            WeatherModel(icon: Icons.overcastDay.rawValue, description: "Overcast Day"),
-            WeatherModel(icon: Icons.overcastNight.rawValue, description: "Overcast Night"),
-            WeatherModel(icon: Icons.rain.rawValue, description: Icons.rain.rawValue.capitalized),
-            WeatherModel(icon: Icons.sleet.rawValue, description: Icons.sleet.rawValue.capitalized),
-            WeatherModel(icon: Icons.smoke.rawValue, description: Icons.smoke.rawValue.capitalized),
-            WeatherModel(icon: Icons.snow.rawValue, description: Icons.snow.rawValue.capitalized),
-            WeatherModel(icon: Icons.thunderstorms.rawValue, description: Icons.thunderstorms.rawValue.capitalized),
-            WeatherModel(icon: Icons.tornado.rawValue, description: Icons.tornado.rawValue.capitalized),
+            WeatherModel(icon: Icons.clearDay.rawValue, description: NSLocalizedString("Clear Day", comment: "")),
+            WeatherModel(icon: Icons.clearNight.rawValue, description: NSLocalizedString("Clear Night", comment: "")),
+            WeatherModel(icon: Icons.cloudy.rawValue, description: NSLocalizedString(Icons.cloudy.rawValue.capitalized, comment: "")),
+            WeatherModel(icon: Icons.drizzle.rawValue, description: NSLocalizedString(Icons.drizzle.rawValue.capitalized, comment: "")),
+            WeatherModel(icon: Icons.fog.rawValue, description: NSLocalizedString(Icons.fog.rawValue.capitalized, comment: "")),
+            WeatherModel(icon: Icons.hail.rawValue, description: NSLocalizedString(Icons.hail.rawValue.capitalized, comment: "")),
+            WeatherModel(icon: Icons.hurricane.rawValue, description: NSLocalizedString(Icons.hurricane.rawValue.capitalized, comment: "")),
+            WeatherModel(icon: Icons.overcastDay.rawValue, description: NSLocalizedString("Overcast Day", comment: "")),
+            WeatherModel(icon: Icons.overcastNight.rawValue, description: NSLocalizedString("Overcast Night", comment: "")),
+            WeatherModel(icon: Icons.rain.rawValue, description: NSLocalizedString(Icons.rain.rawValue.capitalized, comment: "")),
+            WeatherModel(icon: Icons.sleet.rawValue, description: NSLocalizedString(Icons.sleet.rawValue.capitalized, comment: "")),
+            WeatherModel(icon: Icons.smoke.rawValue, description: NSLocalizedString(Icons.smoke.rawValue.capitalized, comment: "")),
+            WeatherModel(icon: Icons.snow.rawValue, description: NSLocalizedString(Icons.snow.rawValue.capitalized, comment: "")),
+            WeatherModel(icon: Icons.thunderstorms.rawValue, description: NSLocalizedString(Icons.thunderstorms.rawValue.capitalized, comment: "")),
+            WeatherModel(icon: Icons.tornado.rawValue, description: NSLocalizedString(Icons.tornado.rawValue.capitalized, comment: "")),
         ]
     }
 }
