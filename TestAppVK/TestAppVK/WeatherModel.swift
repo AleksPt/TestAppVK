@@ -35,7 +35,6 @@ extension WeatherModel {
             WeatherModel(icon: Icons.snow.rawValue, description: Icons.snow.rawValue),
             WeatherModel(icon: Icons.thunderstorms.rawValue, description: Icons.thunderstorms.rawValue),
             WeatherModel(icon: Icons.tornado.rawValue, description: Icons.tornado.rawValue),
-            WeatherModel(icon: Icons.wind.rawValue, description: Icons.wind.rawValue)
         ]
     }
 }

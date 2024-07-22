@@ -29,14 +29,15 @@ final class WeatherViewController: UIViewController {
 // MARK: - UICollectionViewDataSource
 extension WeatherViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        10
+        weather.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: WeatherCell.description(), for: indexPath) as? WeatherCell else {
             return UICollectionViewCell()
         }
-        
+        let itemWeather = weather[indexPath.item]
+        cell.configureCell(item: itemWeather)
         return cell
     }
 }
