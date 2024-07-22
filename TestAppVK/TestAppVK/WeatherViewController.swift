@@ -30,8 +30,20 @@ final class WeatherViewController: UIViewController {
 
     // MARK: - Private methods
     private func didTapCell(item: WeatherModel) {
-        weatherView.weatherImage.image = UIImage(named: item.icon)
-        weatherView.weatherDescription.text = item.description
+        UIView.animate(withDuration: 0.25) { [weak self] in
+            guard let self else { return }
+            weatherView.weatherImage.alpha = 0
+            weatherView.weatherDescription.alpha = 0
+        } completion: { [weak self] _ in
+            guard let self else { return }
+            weatherView.weatherImage.image = UIImage(named: item.icon)
+            weatherView.weatherDescription.text = item.description
+            UIView.animate(withDuration: 0.25) { [weak self] in
+                guard let self else { return }
+                weatherView.weatherImage.alpha = 1
+                weatherView.weatherDescription.alpha = 1
+            }
+        }
     }
     
     private func selectRandomCell() {

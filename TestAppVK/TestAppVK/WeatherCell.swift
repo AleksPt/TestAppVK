@@ -47,9 +47,9 @@ final class WeatherCell: UICollectionViewCell {
     override var isSelected: Bool {
         didSet {
             if isSelected {
-                borderCell.layer.borderColor = UIColor.systemBlue.cgColor
+                animateChangeBorder(duration: 0.25, isSelected: isSelected)
             } else {
-                borderCell.layer.borderColor = UIColor.clear.cgColor
+                animateChangeBorder(duration: 0.25, isSelected: isSelected)
             }
         }
     }
@@ -57,6 +57,21 @@ final class WeatherCell: UICollectionViewCell {
     // MARK: - Public methdos
     func configureCell(item: WeatherModel) {
         weatherImage.image = UIImage(named: item.icon)
+    }
+    
+    // MARK: - Private methods
+    private func animateChangeBorder(duration: TimeInterval, isSelected: Bool) {
+        UIView.animate(withDuration: duration) { [weak self] in
+            guard let self else { return }
+            borderCell.alpha = 0
+        } completion: { [weak self] _ in
+            guard let self else { return }
+            borderCell.layer.borderColor = isSelected ? UIColor.systemBlue.cgColor : UIColor.clear.cgColor
+            UIView.animate(withDuration: duration) { [weak self] in
+                guard let self else { return }
+                borderCell.alpha = 1
+            }
+        }
     }
 }
 
