@@ -21,6 +21,10 @@ final class WeatherViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         weatherView.setDelegates(controller: self)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         selectRandomCell()
     }
 
@@ -37,7 +41,7 @@ final class WeatherViewController: UIViewController {
         weatherView.collectionView.selectItem(
             at: selectedItem,
             animated: true,
-            scrollPosition: []
+            scrollPosition: [.centeredHorizontally]
         )
         
         didTapCell(item: weather[randomItem])

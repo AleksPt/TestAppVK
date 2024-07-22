@@ -10,6 +10,15 @@ import UIKit
 final class WeatherCell: UICollectionViewCell {
     
     // MARK: - UI
+    private lazy var borderCell: UIView = {
+        let element = UIView()
+        element.layer.borderColor = UIColor.clear.cgColor
+        element.translatesAutoresizingMaskIntoConstraints = false
+        element.layer.cornerRadius = 15
+        element.layer.borderWidth = 1
+        return element
+    }()
+    
     private lazy var weatherImage: UIImageView = {
         let element = UIImageView()
         element.contentMode = .scaleAspectFit
@@ -20,6 +29,7 @@ final class WeatherCell: UICollectionViewCell {
     // MARK: - Init
     override init(frame: CGRect) {
         super.init(frame: frame)
+        addSubview(borderCell)
         addSubview(weatherImage)
         setupConstraints()
     }
@@ -34,6 +44,16 @@ final class WeatherCell: UICollectionViewCell {
         weatherImage.image = nil
     }
     
+    override var isSelected: Bool {
+        didSet {
+            if isSelected {
+                borderCell.layer.borderColor = UIColor.systemBlue.cgColor
+            } else {
+                borderCell.layer.borderColor = UIColor.clear.cgColor
+            }
+        }
+    }
+    
     // MARK: - Public methdos
     func configureCell(item: WeatherModel) {
         weatherImage.image = UIImage(named: item.icon)
@@ -44,6 +64,11 @@ final class WeatherCell: UICollectionViewCell {
 private extension WeatherCell {
     func setupConstraints() {
         NSLayoutConstraint.activate([
+            borderCell.leadingAnchor.constraint(equalTo: leadingAnchor),
+            borderCell.trailingAnchor.constraint(equalTo: trailingAnchor),
+            borderCell.topAnchor.constraint(equalTo: topAnchor),
+            borderCell.bottomAnchor.constraint(equalTo: bottomAnchor),
+            
             weatherImage.topAnchor.constraint(equalTo: topAnchor),
             weatherImage.leadingAnchor.constraint(equalTo: leadingAnchor),
             weatherImage.trailingAnchor.constraint(equalTo: trailingAnchor),
