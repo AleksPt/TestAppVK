@@ -11,6 +11,7 @@ final class WeatherViewController: UIViewController {
 
     // MARK: - Private properties
     private let weatherView = WeatherView()
+    private let weather = WeatherModel.getMockData()
     
     // MARK: - Life Cycle
     override func loadView() {
