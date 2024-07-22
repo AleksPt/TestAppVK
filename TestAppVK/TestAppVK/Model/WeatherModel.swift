@@ -18,22 +18,25 @@ struct WeatherModel {
 
 extension WeatherModel {
     static func getMockData() -> [WeatherModel] {
-        [
-            WeatherModel(icon: Icons.clearDay.rawValue, description: NSLocalizedString("Clear Day", comment: "")),
-            WeatherModel(icon: Icons.clearNight.rawValue, description: NSLocalizedString("Clear Night", comment: "")),
-            WeatherModel(icon: Icons.cloudy.rawValue, description: NSLocalizedString(Icons.cloudy.rawValue.capitalized, comment: "")),
-            WeatherModel(icon: Icons.drizzle.rawValue, description: NSLocalizedString(Icons.drizzle.rawValue.capitalized, comment: "")),
-            WeatherModel(icon: Icons.fog.rawValue, description: NSLocalizedString(Icons.fog.rawValue.capitalized, comment: "")),
-            WeatherModel(icon: Icons.hail.rawValue, description: NSLocalizedString(Icons.hail.rawValue.capitalized, comment: "")),
-            WeatherModel(icon: Icons.hurricane.rawValue, description: NSLocalizedString(Icons.hurricane.rawValue.capitalized, comment: "")),
-            WeatherModel(icon: Icons.overcastDay.rawValue, description: NSLocalizedString("Overcast Day", comment: "")),
-            WeatherModel(icon: Icons.overcastNight.rawValue, description: NSLocalizedString("Overcast Night", comment: "")),
-            WeatherModel(icon: Icons.rain.rawValue, description: NSLocalizedString(Icons.rain.rawValue.capitalized, comment: "")),
-            WeatherModel(icon: Icons.sleet.rawValue, description: NSLocalizedString(Icons.sleet.rawValue.capitalized, comment: "")),
-            WeatherModel(icon: Icons.smoke.rawValue, description: NSLocalizedString(Icons.smoke.rawValue.capitalized, comment: "")),
-            WeatherModel(icon: Icons.snow.rawValue, description: NSLocalizedString(Icons.snow.rawValue.capitalized, comment: "")),
-            WeatherModel(icon: Icons.thunderstorms.rawValue, description: NSLocalizedString(Icons.thunderstorms.rawValue.capitalized, comment: "")),
-            WeatherModel(icon: Icons.tornado.rawValue, description: NSLocalizedString(Icons.tornado.rawValue.capitalized, comment: "")),
-        ]
+        var result = [WeatherModel]()
+        
+        Icons.allCases.forEach {
+            var description = ""
+            
+            if $0.rawValue.contains("-") {
+               description = $0.rawValue.replacingOccurrences(of: "-", with: " ").capitalized
+            } else {
+                description = $0.rawValue.capitalized
+            }
+            
+            let weatherItem = WeatherModel(
+                icon: $0.rawValue,
+                description: NSLocalizedString(description, comment: "")
+            )
+            
+            result.append(weatherItem)
+        }
+        
+        return result
     }
 }

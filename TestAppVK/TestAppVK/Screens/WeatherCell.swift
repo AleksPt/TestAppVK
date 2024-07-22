@@ -46,11 +46,7 @@ final class WeatherCell: UICollectionViewCell {
     
     override var isSelected: Bool {
         didSet {
-            if isSelected {
-                animateChangeBorder(duration: 0.25, isSelected: isSelected)
-            } else {
-                animateChangeBorder(duration: 0.25, isSelected: isSelected)
-            }
+            animateChangeBorder(duration: 0.25, isSelected: isSelected)
         }
     }
     

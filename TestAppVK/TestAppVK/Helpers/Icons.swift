@@ -7,7 +7,7 @@
 
 import UIKit
 
-enum Icons: String {
+enum Icons: String, CaseIterable {
     case clearDay = "clear-day"
     case clearNight = "clear-night"
     case cloudy
