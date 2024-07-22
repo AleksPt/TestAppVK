@@ -10,6 +10,7 @@ import Foundation
 struct WeatherModel {
     let icon: String
     let description: String
+    let backgroundOverlay: String
     
     var lol: String {
         icon
@@ -31,7 +32,8 @@ extension WeatherModel {
             
             let weatherItem = WeatherModel(
                 icon: $0.rawValue,
-                description: NSLocalizedString(description, comment: "")
+                description: NSLocalizedString(description, comment: ""),
+                backgroundOverlay: $0.rawValue + "Background"
             )
             
             result.append(weatherItem)

@@ -34,14 +34,18 @@ final class WeatherViewController: UIViewController {
             guard let self else { return }
             weatherView.weatherImage.alpha = 0
             weatherView.weatherDescription.alpha = 0
+            weatherView.backgroundOverlayView.alpha = 1
         } completion: { [weak self] _ in
             guard let self else { return }
             weatherView.weatherImage.image = UIImage(named: item.icon)
             weatherView.weatherDescription.text = item.description
+            weatherView.backgroundImage.image = UIImage(named: item.backgroundOverlay)
+            animateBackgroundImage()
             UIView.animate(withDuration: 0.25) { [weak self] in
                 guard let self else { return }
                 weatherView.weatherImage.alpha = 1
                 weatherView.weatherDescription.alpha = 1
+                weatherView.backgroundOverlayView.alpha = 0.5
             }
         }
     }
@@ -57,6 +61,18 @@ final class WeatherViewController: UIViewController {
         )
         
         didTapCell(item: weather[randomItem])
+    }
+    
+    private func animateBackgroundImage() {
+        weatherView.backgroundImage.layer.removeAllAnimations()
+        weatherView.backgroundImage.transform = .identity
+        UIView.animate(withDuration: 10,
+                       delay: 0,
+                       options: [.curveEaseInOut],
+                       animations: { [weak self] in
+            guard let self else { return }
+            weatherView.backgroundImage.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
+        })
     }
 
 }

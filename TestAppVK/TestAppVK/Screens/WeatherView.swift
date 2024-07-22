@@ -19,9 +19,26 @@ final class WeatherView: UIView {
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collection.register(WeatherCell.self, forCellWithReuseIdentifier: WeatherCell.description())
         collection.translatesAutoresizingMaskIntoConstraints = false
-        collection.backgroundColor = .systemBackground
+        collection.backgroundColor = .clear
         collection.showsHorizontalScrollIndicator = false
         return collection
+    }()
+    
+    lazy var backgroundImage: UIImageView = {
+        let element = UIImageView()
+        element.image = .clearDayBackground
+        element.translatesAutoresizingMaskIntoConstraints = false
+        element.contentMode = .scaleAspectFill
+        element.clipsToBounds = true
+        element.addSubview(backgroundOverlayView)
+        return element
+    }()
+    
+    lazy var backgroundOverlayView: UIView = {
+        let element = UIView()
+        element.backgroundColor = .black
+        element.alpha = 0.5
+        return element
     }()
     
     lazy var weatherImage: UIImageView = {
@@ -33,6 +50,7 @@ final class WeatherView: UIView {
     
     lazy var weatherDescription: UILabel = {
         let element = UILabel()
+        element.textColor = .white
         element.textAlignment = .center
         element.numberOfLines = 0
         element.font = .systemFont(ofSize: 18, weight: .bold)
@@ -51,6 +69,12 @@ final class WeatherView: UIView {
         fatalError("MainView is failed init")
     }
     
+    // MARK: - Override methods
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        backgroundOverlayView.frame = backgroundImage.frame
+    }
+    
     // MARK: - Public methods
     func setDelegates(controller: WeatherViewController) {
         collectionView.delegate = controller
@@ -61,6 +85,7 @@ final class WeatherView: UIView {
     private func setupView() {
         backgroundColor = .systemBackground
         [
+            backgroundImage,
             collectionView,
             weatherImage,
             weatherDescription
@@ -76,6 +101,11 @@ private extension WeatherView {
         let widthStack = ScreenSize.screenWidth / 1.5
         
         NSLayoutConstraint.activate([
+            backgroundImage.leadingAnchor.constraint(equalTo: leadingAnchor),
+            backgroundImage.trailingAnchor.constraint(equalTo: trailingAnchor),
+            backgroundImage.topAnchor.constraint(equalTo: topAnchor),
+            backgroundImage.bottomAnchor.constraint(equalTo: bottomAnchor),
+            
             collectionView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 10),
             collectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: trailingAnchor),

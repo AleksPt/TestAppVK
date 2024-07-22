@@ -62,7 +62,7 @@ final class WeatherCell: UICollectionViewCell {
             borderCell.alpha = 0
         } completion: { [weak self] _ in
             guard let self else { return }
-            borderCell.layer.borderColor = isSelected ? UIColor.systemBlue.cgColor : UIColor.clear.cgColor
+            borderCell.layer.borderColor = isSelected ? UIColor.white.cgColor : UIColor.clear.cgColor
             UIView.animate(withDuration: duration) { [weak self] in
                 guard let self else { return }
                 borderCell.alpha = 1
